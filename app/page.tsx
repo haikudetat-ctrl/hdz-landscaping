@@ -20,24 +20,51 @@ const featuredServices = ["Hardscaping", "Pavers", "Retaining Walls", "Outdoor L
 
 const steps = [
   {
-    title: "Share your project",
-    description: "Tell us the property address, services needed, timeline, and budget in our quick intake form.",
+    title: "Tell us what you need",
+    description: "Choose services, share your address, and add project photos in a quick intake form.",
   },
   {
-    title: "Get your plan",
-    description: "HDZ reviews your details and photos, then we reach out with scope, recommendations, and next steps.",
+    title: "Get a clear next step",
+    description: "HDZ reviews your request and reaches out with practical recommendations and estimate details.",
   },
   {
-    title: "Build with confidence",
-    description: "We schedule your work, complete the job, and keep communication clear from start to finish.",
+    title: "Schedule and get it done",
+    description: "Approve the plan, lock in scheduling, and get clean, professional work completed on your property.",
   },
 ];
 
 const metrics = [
-  { value: "1200+", label: "Projects Completed" },
-  { value: "850+", label: "Happy Customers" },
-  { value: "25+", label: "Years Combined Crew Experience" },
-  { value: "15+", label: "Service Areas" },
+  { value: "1200+", label: "Completed Projects" },
+  { value: "850+", label: "Satisfied Homeowners" },
+  { value: "25+", label: "Years of Crew Experience" },
+  { value: "15+", label: "South Jersey Service Areas" },
+];
+
+const painPoints = [
+  "Too many contractors are hard to reach after the first call.",
+  "Vague estimates make it difficult to budget with confidence.",
+  "Inconsistent crews leave properties looking unfinished.",
+];
+
+const outcomes = [
+  "Clear scope before work starts",
+  "Reliable communication from estimate to completion",
+  "A cleaner, sharper property that stays maintained",
+];
+
+const faqs = [
+  {
+    question: "How fast will someone get back to me?",
+    answer: "Most requests are reviewed quickly. Sharing photos and clear details helps HDZ respond faster with useful next steps.",
+  },
+  {
+    question: "Can I request more than one service at once?",
+    answer: "Yes. You can select multiple services in one intake and HDZ will help prioritize the work based on your goals.",
+  },
+  {
+    question: "Do I need to be home for an initial estimate?",
+    answer: "Not always. Include access notes and photos in your intake so the team can evaluate your project efficiently.",
+  },
 ];
 
 export default function HdzLandingPage() {
@@ -56,12 +83,14 @@ export default function HdzLandingPage() {
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-lime-300">HDZ Hardscaping & Landscaping LLC</p>
               <h1 className="mt-3 max-w-xl text-4xl font-black leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Hardscaping & Landscaping
-                <span className="block text-lime-400">Built Around Your Property</span>
+                Your Yard Should Look
+                <span className="block text-lime-400">As Good As Your Home</span>
               </h1>
               <p className="mt-5 max-w-2xl text-base text-zinc-100/90 sm:text-lg">
-                Lawn maintenance, pavers, retaining walls, outdoor lighting, sod, tree service, sidewalks, and concrete work
-                for South Jersey homeowners.
+                HDZ helps South Jersey homeowners plan, price, and complete landscaping and hardscaping work without the usual contractor guesswork.
+              </p>
+              <p className="mt-3 max-w-2xl text-sm font-semibold text-zinc-200 sm:text-base">
+                Lawn maintenance, pavers, retaining walls, outdoor lighting, sod, tree service, sidewalks, and concrete work.
               </p>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -69,43 +98,43 @@ export default function HdzLandingPage() {
                   href="/intake"
                   className="inline-flex min-h-12 items-center justify-center rounded-full border border-lime-300 bg-lime-400 px-6 py-3 text-base font-extrabold text-black transition hover:bg-lime-300"
                 >
-                  Start Your Project
+                  Get My Estimate Started
                 </Link>
                 <a
                   href="tel:+18563947978"
                   className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-orange-400 bg-black/35 px-6 py-3 text-base font-bold text-white transition hover:bg-black/55"
                 >
-                  Call 856-394-7978
+                  Call HDZ: 856-394-7978
                 </a>
               </div>
             </div>
 
             <aside className="rounded-2xl border border-lime-400/35 bg-[linear-gradient(160deg,rgba(15,80,30,0.86),rgba(8,30,14,0.92))] p-5 backdrop-blur">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-lime-300">Top Requested Services</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-lime-300">Most Requested Projects</p>
               <div className="mt-3 space-y-3">
                 {featuredServices.map((service) => (
                   <div key={service} className="rounded-xl border border-white/10 bg-black/20 px-3 py-2">
                     <p className="text-sm font-black text-white">{service}</p>
-                    <p className="mt-1 text-xs text-zinc-200">Custom installs tailored to your property layout.</p>
+                    <p className="mt-1 text-xs text-zinc-200">Built around your property layout, usage, and long-term upkeep.</p>
                   </div>
                 ))}
               </div>
             </aside>
           </div>
 
-          <div className="grid gap-3 border-t border-lime-300/25 bg-[linear-gradient(100deg,#17b44d,#0d8e37)] px-6 py-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-10">
+          <div className="grid gap-3 border-t border-lime-400/25 bg-[linear-gradient(160deg,rgba(15,80,30,0.9),rgba(8,30,14,0.96))] px-6 py-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-10">
             {metrics.map((metric) => (
-              <div key={metric.label} className="rounded-xl border border-white/15 bg-black/15 px-3 py-2">
+              <div key={metric.label} className="rounded-xl border border-white/10 bg-black/20 px-3 py-2">
                 <p className="text-3xl font-black leading-none text-white">{metric.value}</p>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.1em] text-lime-100">{metric.label}</p>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.1em] text-zinc-200">{metric.label}</p>
               </div>
             ))}
           </div>
         </section>
 
         <section className="mt-10 px-4 sm:px-6">
-          <h2 className="text-2xl font-black text-white sm:text-3xl">Services</h2>
-          <p className="mt-2 max-w-2xl text-sm text-zinc-300">High-impact outdoor upgrades with contractor-grade execution and clear communication.</p>
+          <h2 className="text-2xl font-black text-white sm:text-3xl">Services Homeowners Ask For Most</h2>
+          <p className="mt-2 max-w-2xl text-sm text-zinc-300">Practical, high-visibility improvements that make your property easier to maintain and better to live in.</p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <div
@@ -119,6 +148,29 @@ export default function HdzLandingPage() {
                 </Link>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="mt-10 grid gap-6 px-4 sm:px-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-white/10 bg-zinc-950/95 p-6">
+            <h2 className="text-2xl font-black text-white">Why Homeowners Reach Out</h2>
+            <div className="mt-4 space-y-2">
+              {painPoints.map((pain) => (
+                <p key={pain} className="rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-sm text-zinc-200">
+                  {pain}
+                </p>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-2xl border border-lime-400/30 bg-[linear-gradient(160deg,rgba(15,80,30,0.86),rgba(8,30,14,0.92))] p-6">
+            <h2 className="text-2xl font-black text-white">What You Get With HDZ</h2>
+            <div className="mt-4 space-y-2">
+              {outcomes.map((outcome) => (
+                <p key={outcome} className="rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-sm font-semibold text-zinc-100">
+                  {outcome}
+                </p>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -137,20 +189,20 @@ export default function HdzLandingPage() {
           </div>
 
           <div className="rounded-2xl border border-orange-400/50 bg-[linear-gradient(160deg,rgba(20,20,20,0.96),rgba(8,8,8,0.98))] p-6">
-            <h2 className="text-2xl font-black text-white">Ready to Price Your Project?</h2>
-            <p className="mt-2 text-sm text-zinc-300">Most homeowners finish intake in under 3 minutes. Add photos for a faster first estimate.</p>
+            <h2 className="text-2xl font-black text-white">Ready to See a Real Plan for Your Yard?</h2>
+            <p className="mt-2 text-sm text-zinc-300">Most homeowners finish intake in under 3 minutes. Add photos to get a faster, more accurate response.</p>
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
               <Link
                 href="/intake"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-lime-300 bg-lime-400 px-5 text-sm font-extrabold text-black hover:bg-lime-300"
               >
-                Start Your Project
+                Start My Intake
               </Link>
               <a
                 href="tel:+18563947978"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-orange-400 px-5 text-sm font-extrabold text-white hover:bg-zinc-900"
               >
-                Call 856-394-7978
+                Speak With HDZ
               </a>
             </div>
           </div>
@@ -170,6 +222,42 @@ export default function HdzLandingPage() {
                 Before / After {slot}
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="mt-10 px-4 sm:px-6">
+          <h2 className="text-2xl font-black text-white sm:text-3xl">Common Questions</h2>
+          <div className="mt-4 grid gap-3 lg:grid-cols-3">
+            {faqs.map((faq) => (
+              <div key={faq.question} className="rounded-2xl border border-white/10 bg-zinc-950/90 p-4">
+                <h3 className="text-sm font-black text-lime-300">{faq.question}</h3>
+                <p className="mt-2 text-sm text-zinc-300">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-10 px-4 sm:px-6">
+          <div className="rounded-2xl border border-orange-400/50 bg-[linear-gradient(160deg,rgba(20,20,20,0.96),rgba(8,8,8,0.98))] p-6 text-center sm:p-8">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-lime-300">Final Step</p>
+            <h2 className="mt-2 text-2xl font-black text-white sm:text-3xl">Get Your Project Moving</h2>
+            <p className="mx-auto mt-2 max-w-2xl text-sm text-zinc-300 sm:text-base">
+              Tell us what you want done, where the property is, and how to reach you. We will follow up with clear next steps.
+            </p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-center">
+              <Link
+                href="/intake"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-lime-300 bg-lime-400 px-6 py-3 text-base font-extrabold text-black transition hover:bg-lime-300"
+              >
+                Get My Estimate Started
+              </Link>
+              <a
+                href="tel:+18563947978"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-orange-400 bg-black/35 px-6 py-3 text-base font-bold text-white transition hover:bg-black/55"
+              >
+                Call HDZ: 856-394-7978
+              </a>
+            </div>
           </div>
         </section>
       </div>
