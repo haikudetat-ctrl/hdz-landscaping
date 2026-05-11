@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const heroBackgroundImage =
   "https://qyshjizmljqzxdpobqfw.supabase.co/storage/v1/object/public/marketing-assets/hdz/hero/hdz-hero-stock1-2200.jpg";
@@ -81,10 +82,19 @@ export default function HdzLandingPage() {
         >
           <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-10">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.24em] text-lime-300">HDZ Hardscaping & Landscaping LLC</p>
-              <h1 className="mt-3 max-w-xl text-4xl font-black leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Your Yard Should Look
-                <span className="block text-lime-400">As Good As Your Home</span>
+              <Image
+                src="/logos/HDZ_White_FullLogo.svg"
+                alt="HDZ Hardscaping & Landscaping"
+                width={260}
+                height={48}
+                className="h-auto w-[170px] sm:w-[220px] lg:w-[260px]"
+                priority
+              />
+              <h1 className="mt-3 max-w-xl text-4xl font-black leading-[1.045] tracking-tight text-lime-400 sm:text-5xl lg:text-6xl">
+                Hardscaping & Landscaping
+                <span className="mt-1 block whitespace-nowrap text-[0.75em] font-black leading-[1.05] tracking-tight text-white">
+                  Built Around Your Budget
+                </span>
               </h1>
               <p className="mt-5 max-w-2xl text-base text-zinc-100/90 sm:text-lg">
                 HDZ helps South Jersey homeowners plan, price, and complete landscaping and hardscaping work without the usual contractor guesswork.
@@ -109,8 +119,8 @@ export default function HdzLandingPage() {
               </div>
             </div>
 
-            <aside className="rounded-2xl border border-lime-400/35 bg-[linear-gradient(160deg,rgba(15,80,30,0.86),rgba(8,30,14,0.92))] p-5 backdrop-blur">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-lime-300">Most Requested Projects</p>
+            <aside className="rounded-2xl border border-lime-400/35 bg-[linear-gradient(160deg,rgba(15,80,30,0.1),rgba(8,30,14,0.1))] p-5 backdrop-blur">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-lime-300">Top Requested Services</p>
               <div className="mt-3 space-y-3">
                 {featuredServices.map((service) => (
                   <div key={service} className="rounded-xl border border-white/10 bg-black/20 px-3 py-2">
@@ -122,11 +132,11 @@ export default function HdzLandingPage() {
             </aside>
           </div>
 
-          <div className="grid gap-3 border-t border-lime-400/25 bg-[linear-gradient(160deg,rgba(15,80,30,0.9),rgba(8,30,14,0.96))] px-6 py-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-10">
+          <div className="grid gap-3 border-t border-lime-400/35 bg-[linear-gradient(160deg,rgba(15,80,30,0.86),rgba(8,30,14,0.92))] px-6 py-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-10">
             {metrics.map((metric) => (
               <div key={metric.label} className="rounded-xl border border-white/10 bg-black/20 px-3 py-2">
                 <p className="text-3xl font-black leading-none text-white">{metric.value}</p>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.1em] text-zinc-200">{metric.label}</p>
+                <p className="mt-1 text-xs font-semibold text-zinc-200">{metric.label}</p>
               </div>
             ))}
           </div>

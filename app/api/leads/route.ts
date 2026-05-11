@@ -9,6 +9,12 @@ function readText(formData: FormData, key: string) {
   return typeof value === "string" ? value.trim() : "";
 }
 
+function getLeadOrganizationId() {
+  const value = process.env.HDZ_LEAD_ORGANIZATION_ID;
+  if (!value || !value.trim()) return null;
+  return value.trim();
+}
+
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
@@ -32,11 +38,13 @@ export async function POST(request: Request) {
     }
 
     const supabase = getSupabaseServiceClient();
+    const organizationId = getLeadOrganizationId();
     const now = new Date().toISOString();
 
     const leadInsert = await supabase
       .from("leads")
       .insert({
+        organization_id: organizationId,
         tenant_slug: parsed.data.tenantSlug,
         source: "hdz-landing",
         status: "new",
