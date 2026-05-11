@@ -19,6 +19,13 @@ const services = [
   { title: "Christmas Light Setup and Removal", blurb: "Seasonal install, maintenance, and takedown for rooflines, trees, and entry features with clean post-holiday removal." },
 ];
 
+const serviceCardBackgrounds: Record<string, { image: string; position: string }> = {
+  "Lawn Maintenance": { image: "/logos/LOAM_Lawn1.jpg", position: "center" },
+  "Soil Analysis & Maintenance": { image: "/logos/LOAM_Mulch.jpg", position: "center" },
+  "Tree Service": { image: "/logos/LOAM_TreeRemoval.jpg", position: "center" },
+  "Snow Removal": { image: "/logos/LOAM_SnowRemoval.jpg", position: "center" },
+};
+
 const featuredServices = ["Hardscaping", "Pavers", "Retaining Walls", "Outdoor Lighting"];
 
 const steps = [
@@ -148,17 +155,19 @@ export default function HdzLandingPage() {
           <h2 className="text-2xl font-black text-white sm:text-3xl">Services Most Homeowners Ask For</h2>
           <p className="mt-2 max-w-2xl text-sm text-zinc-300">Practical, high-visibility improvements that make your property easier to maintain and better to live in.</p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
+            {services.map((service) => {
+              const background = serviceCardBackgrounds[service.title];
+              return (
               <div
                 key={service.title}
                 className="relative overflow-hidden rounded-2xl border border-lime-400/30 p-5 text-white"
                 style={
-                  service.title === "Tree Service"
+                  background
                     ? {
                         backgroundImage:
-                          "linear-gradient(160deg, rgba(0,0,0,0.72) 10%, rgba(0,0,0,0.52) 55%, rgba(0,0,0,0.75) 100%), url('/logos/LOAM_TreeRemoval.jpg')",
+                          `linear-gradient(160deg, rgba(0,0,0,0.72) 10%, rgba(0,0,0,0.52) 55%, rgba(0,0,0,0.75) 100%), url('${background.image}')`,
                         backgroundSize: "cover",
-                        backgroundPosition: "center",
+                        backgroundPosition: background.position,
                       }
                     : {
                         backgroundImage: "linear-gradient(170deg,rgba(16,24,18,0.95),rgba(8,12,9,0.98))",
@@ -174,7 +183,8 @@ export default function HdzLandingPage() {
                   Request Estimate
                 </Link>
               </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
