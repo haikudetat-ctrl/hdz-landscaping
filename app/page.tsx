@@ -5,16 +5,17 @@ const heroBackgroundImage =
   "https://qyshjizmljqzxdpobqfw.supabase.co/storage/v1/object/public/marketing-assets/hdz/hero/hdz-hero-stock1-2200.jpg";
 
 const services = [
-  { title: "Lawn Maintenance", blurb: "Routine cuts, edging, and cleanup to keep curb appeal sharp." },
-  { title: "Hardscaping", blurb: "Built features that add structure, function, and long-term value." },
-  { title: "Outdoor Lighting", blurb: "Highlight your property and improve night-time safety." },
-  { title: "Top Soil", blurb: "Fresh grade-ready top soil for healthier lawn and landscape beds." },
-  { title: "Sod", blurb: "Fast green-up with clean installation and post-install guidance." },
-  { title: "Tree Service", blurb: "Trim, cleanup, and property-safe tree work." },
-  { title: "Pavers", blurb: "Durable, clean paver installs for patios, walkways, and entries." },
-  { title: "Retaining Walls", blurb: "Stabilize elevation and define your outdoor space." },
-  { title: "Sidewalks", blurb: "Straight, safe concrete paths with clean finish work." },
-  { title: "Driveways / Concrete", blurb: "Strong concrete flatwork built for everyday use." },
+  { title: "Lawn Maintenance", blurb: "From weekly cuts to overgrown resets, drainage-prone yards, and cleanup for vacant or rental properties." },
+  { title: "Hardscaping", blurb: "Patios, pavers, and grade-sensitive installs for slopes, tight access areas, and high-traffic family spaces." },
+  { title: "Outdoor Living", blurb: "Lighting, firepits, and outdoor kitchens planned for safety, utility lines, and all-season use." },
+  { title: "Soil Analysis & Maintenance", blurb: "Compaction, pH imbalance, patchy growth, and nutrient correction plans for difficult lawns and beds." },
+  { title: "Tree Service", blurb: "Storm-damaged limbs, risky overhangs, deadwood, and targeted removals near homes, fences, and power paths." },
+  { title: "Retaining Walls", blurb: "Wall rebuilds and new installs for erosion control, failed walls, pooling water, and uneven grade transitions." },
+  { title: "Driveway", blurb: "Concrete driveway repairs and replacements for cracking, settling, edge failure, and water runoff issues." },
+  { title: "Sidewalks", blurb: "Trip-hazard fixes, panel replacement, root-lift correction, and code-conscious path upgrades." },
+  { title: "Fencing", blurb: "New fence lines, storm repairs, gate access fixes, and property boundary installs with clean finish work." },
+  { title: "Leaf Removal", blurb: "Seasonal cleanouts for heavy tree coverage, clogged drains, and properties that need curb-ready turnaround." },
+  { title: "Snow Removal", blurb: "Driveway and walkway clearing, de-icing support, and priority service for early departures or limited mobility access." },
 ];
 
 const featuredServices = ["Hardscaping", "Pavers", "Retaining Walls", "Outdoor Lighting"];
@@ -143,7 +144,7 @@ export default function HdzLandingPage() {
         </section>
 
         <section className="mt-10 px-4 sm:px-6">
-          <h2 className="text-2xl font-black text-white sm:text-3xl">Services Homeowners Ask For Most</h2>
+          <h2 className="text-2xl font-black text-white sm:text-3xl">Services Most Homeowners Ask For</h2>
           <p className="mt-2 max-w-2xl text-sm text-zinc-300">Practical, high-visibility improvements that make your property easier to maintain and better to live in.</p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
