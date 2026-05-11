@@ -21,6 +21,7 @@ const services = [
 
 const serviceCardBackgrounds: Record<string, { image: string; position: string }> = {
   "Lawn Maintenance": { image: "/logos/LOAM_Lawn1.jpg", position: "center" },
+  Hardscaping: { image: "/logos/LOAM_Patio.jpg", position: "center" },
   "Outdoor Living": { image: "/logos/LOAM_OutdoorLiving.jpg", position: "center" },
   "Soil Analysis & Maintenance": { image: "/logos/LOAM_SoilAnalysis.jpg", position: "center" },
   "Tree Service": { image: "/logos/LOAM_TreeRemoval.jpg", position: "center" },
@@ -28,7 +29,7 @@ const serviceCardBackgrounds: Record<string, { image: string; position: string }
   Driveway: { image: "/logos/LOAM_Driveway.jpg", position: "center" },
   Sidewalks: { image: "/logos/LOAM_Sidewalk.jpg", position: "center" },
   Fencing: { image: "/logos/LOAM_WhiteFence.jpg", position: "center" },
-  "Leaf Removal": { image: "/logos/LOAM_Flowers1.jpg", position: "center" },
+  "Leaf Removal": { image: "/logos/LOAM_LeafRemoval.jpg", position: "center" },
   "Snow Removal": { image: "/logos/LOAM_SnowRemoval.jpg", position: "center" },
   "Christmas Light Setup and Removal": { image: "/logos/LOAM_Christmas.jpg", position: "center" },
 };
