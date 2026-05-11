@@ -16,6 +16,7 @@ const services = [
   { title: "Fencing", blurb: "New fence lines, storm repairs, gate access fixes, and property boundary installs with clean finish work." },
   { title: "Leaf Removal", blurb: "Seasonal cleanouts for heavy tree coverage, clogged drains, and properties that need curb-ready turnaround." },
   { title: "Snow Removal", blurb: "Driveway and walkway clearing, de-icing support, and priority service for early departures or limited mobility access." },
+  { title: "Christmas Light Setup and Removal", blurb: "Seasonal install, maintenance, and takedown for rooflines, trees, and entry features with clean post-holiday removal." },
 ];
 
 const featuredServices = ["Hardscaping", "Pavers", "Retaining Walls", "Outdoor Lighting"];
