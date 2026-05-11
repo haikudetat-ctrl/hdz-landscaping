@@ -149,11 +149,26 @@ export default function HdzLandingPage() {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="rounded-2xl border border-lime-400/30 bg-[linear-gradient(170deg,rgba(16,24,18,0.95),rgba(8,12,9,0.98))] p-5 text-white"
+                className="relative overflow-hidden rounded-2xl border border-lime-400/30 p-5 text-white"
+                style={
+                  service.title === "Tree Service"
+                    ? {
+                        backgroundImage:
+                          "linear-gradient(160deg, rgba(0,0,0,0.72) 10%, rgba(0,0,0,0.52) 55%, rgba(0,0,0,0.75) 100%), url('/logos/LOAM_TreeRemoval.jpg')",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }
+                    : {
+                        backgroundImage: "linear-gradient(170deg,rgba(16,24,18,0.95),rgba(8,12,9,0.98))",
+                      }
+                }
               >
-                <p className="text-base font-black text-lime-300">{service.title}</p>
-                <p className="mt-2 text-sm text-zinc-300">{service.blurb}</p>
-                <Link href="/intake" className="mt-3 inline-flex text-xs font-black uppercase tracking-[0.12em] text-orange-300 hover:text-orange-200">
+                <p className="relative z-10 text-base font-black text-lime-300">{service.title}</p>
+                <p className="relative z-10 mt-2 text-sm text-zinc-200">{service.blurb}</p>
+                <Link
+                  href="/intake"
+                  className="relative z-10 mt-3 inline-flex text-xs font-black uppercase tracking-[0.12em] text-orange-300 hover:text-orange-200"
+                >
                   Request Estimate
                 </Link>
               </div>
