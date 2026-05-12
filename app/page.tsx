@@ -34,7 +34,24 @@ const serviceCardBackgrounds: Record<string, { image: string; position: string }
   "Christmas Light Setup and Removal": { image: "/logos/LOAM_Christmas.jpg", position: "center" },
 };
 
-const featuredServices = ["Hardscaping", "Pavers", "Retaining Walls", "Outdoor Lighting"];
+const featuredServices = [
+  {
+    title: "Hardscaping",
+    blurb: "Built around your property layout, usage, and long-term upkeep.",
+  },
+  {
+    title: "Mowing & Maintenance",
+    blurb: "From weekly cuts to overgrown resets, drainage-prone yards, and cleanup for vacant or rental properties.",
+  },
+  {
+    title: "Retaining Walls",
+    blurb: "Built around your property layout, usage, and long-term upkeep.",
+  },
+  {
+    title: "Outdoor Living",
+    blurb: "Built around your property layout, usage, and long-term upkeep.",
+  },
+];
 
 const steps = [
   {
@@ -55,34 +72,14 @@ const metrics = [
   { value: "1200+", label: "Completed Projects" },
   { value: "850+", label: "Satisfied Homeowners" },
   { value: "25+", label: "Years of Crew Experience" },
-  { value: "15+", label: "South Jersey Service Areas" },
-];
-
-const painPoints = [
-  "Too many contractors are hard to reach after the first call.",
-  "Vague estimates make it difficult to budget with confidence.",
-  "Inconsistent crews leave properties looking unfinished.",
+  { value: "Fast Response", label: "Local South Jersey Dispatch" },
 ];
 
 const outcomes = [
   "Clear scope before work starts",
   "Reliable communication from estimate to completion",
+  "Great work at an affordable price",
   "A cleaner, sharper property that stays maintained",
-];
-
-const faqs = [
-  {
-    question: "How fast will someone get back to me?",
-    answer: "Most requests are reviewed quickly. Sharing photos and clear details helps HDZ respond faster with useful next steps.",
-  },
-  {
-    question: "Can I request more than one service at once?",
-    answer: "Yes. You can select multiple services in one intake and HDZ will help prioritize the work based on your goals.",
-  },
-  {
-    question: "Do I need to be home for an initial estimate?",
-    answer: "Not always. Include access notes and photos in your intake so the team can evaluate your project efficiently.",
-  },
 ];
 
 export default function HdzLandingPage() {
@@ -90,7 +87,7 @@ export default function HdzLandingPage() {
     <main className="min-h-screen bg-[#050505] text-white">
       <div className="w-full pb-24 pt-0">
         <section
-          className="overflow-hidden rounded-3xl border border-lime-400/30 bg-zinc-950 shadow-[0_35px_80px_-45px_rgba(16,185,129,0.6)]"
+          className="overflow-hidden rounded-3xl bg-zinc-950 shadow-[0_35px_80px_-45px_rgba(16,185,129,0.6)]"
           style={{
             backgroundImage: `linear-gradient(102deg, rgba(0,0,0,0.82) 7%, rgba(0,0,0,0.5) 58%, rgba(0,0,0,0.2) 100%), url(${heroBackgroundImage})`,
             backgroundSize: "cover",
@@ -102,13 +99,15 @@ export default function HdzLandingPage() {
               <Image
                 src="/logos/HDZ_White_FullLogo.svg"
                 alt="HDZ Hardscaping & Landscaping"
-                width={260}
-                height={48}
-                className="h-auto w-[170px] sm:w-[220px] lg:w-[260px]"
+                width={520}
+                height={96}
+                className="h-auto w-[340px] sm:w-[440px] lg:w-[520px]"
                 priority
               />
               <h1 className="mt-3 max-w-xl text-4xl font-black leading-[1.045] tracking-tight text-lime-400 sm:text-5xl lg:text-6xl">
-                Hardscaping & Landscaping
+                <span className="bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] bg-clip-text text-transparent">
+                  Hardscaping & Landscaping
+                </span>
                 <span className="mt-1 block whitespace-nowrap text-[0.75em] font-black leading-[1.05] tracking-tight text-white">
                   Built Around Your Budget
                 </span>
@@ -123,7 +122,7 @@ export default function HdzLandingPage() {
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/intake"
-                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-lime-300 bg-lime-400 px-6 py-3 text-base font-extrabold text-black transition hover:bg-lime-300"
+                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-lime-300 bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] px-6 py-3 text-base font-extrabold text-black shadow-[0_12px_28px_-16px_rgba(163,230,53,0.9)] transition hover:brightness-105"
                 >
                   Get My Estimate Started
                 </Link>
@@ -140,9 +139,9 @@ export default function HdzLandingPage() {
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-lime-300">Top Requested Services</p>
               <div className="mt-3 space-y-3">
                 {featuredServices.map((service) => (
-                  <div key={service} className="rounded-xl border border-white/10 bg-black/20 px-3 py-2">
-                    <p className="text-sm font-black text-white">{service}</p>
-                    <p className="mt-1 text-xs text-zinc-200">Built around your property layout, usage, and long-term upkeep.</p>
+                  <div key={service.title} className="rounded-xl border border-white/10 bg-black/20 px-3 py-2">
+                    <p className="text-sm font-black text-white">{service.title}</p>
+                    <p className="mt-1 text-xs text-zinc-200">{service.blurb}</p>
                   </div>
                 ))}
               </div>
@@ -160,15 +159,20 @@ export default function HdzLandingPage() {
         </section>
 
         <section className="mt-10 px-4 sm:px-6">
-          <h2 className="text-2xl font-black text-white sm:text-3xl">Services Most Homeowners Ask For</h2>
-          <p className="mt-2 max-w-2xl text-sm text-zinc-300">Practical, high-visibility improvements that make your property easier to maintain and better to live in.</p>
+          <h2 className="text-2xl font-black text-white sm:text-3xl">
+            Call for FREE Estimate:{" "}
+            <a href="tel:+18563947978" className="text-lime-300 hover:text-lime-200">
+              856-394-7978
+            </a>
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm text-zinc-300">Scroll, choose your service, and tap Request Estimate to start your intake in minutes.</p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => {
               const background = serviceCardBackgrounds[service.title];
               return (
               <div
                 key={service.title}
-                className="relative overflow-hidden rounded-2xl border border-lime-400/30 p-5 text-white"
+                className="relative overflow-hidden rounded-2xl border-2 border-lime-400/40 py-5 pl-[1.875rem] pr-[1.5625rem] text-white"
                 style={
                   background
                     ? {
@@ -186,7 +190,7 @@ export default function HdzLandingPage() {
                 <p className="relative z-10 mt-2 text-sm text-zinc-200">{service.blurb}</p>
                 <Link
                   href="/intake"
-                  className="relative z-10 mt-3 inline-flex text-xs font-black uppercase tracking-[0.12em] text-orange-300 hover:text-orange-200"
+                  className="relative z-10 mt-3 inline-flex text-sm font-black uppercase tracking-[0.12em] text-orange-300 transition hover:text-lime-300"
                 >
                   Request Estimate
                 </Link>
@@ -196,17 +200,7 @@ export default function HdzLandingPage() {
           </div>
         </section>
 
-        <section className="mt-10 grid gap-6 px-4 sm:px-6 lg:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-zinc-950/95 p-6">
-            <h2 className="text-2xl font-black text-white">Why Homeowners Reach Out</h2>
-            <div className="mt-4 space-y-2">
-              {painPoints.map((pain) => (
-                <p key={pain} className="rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-sm text-zinc-200">
-                  {pain}
-                </p>
-              ))}
-            </div>
-          </div>
+        <section className="mt-10 grid gap-6 px-4 sm:px-6">
           <div className="rounded-2xl border border-lime-400/30 bg-[linear-gradient(160deg,rgba(15,80,30,0.86),rgba(8,30,14,0.92))] p-6">
             <h2 className="text-2xl font-black text-white">What You Get With HDZ</h2>
             <div className="mt-4 space-y-2">
@@ -271,28 +265,16 @@ export default function HdzLandingPage() {
         </section>
 
         <section className="mt-10 px-4 sm:px-6">
-          <h2 className="text-2xl font-black text-white sm:text-3xl">Common Questions</h2>
-          <div className="mt-4 grid gap-3 lg:grid-cols-3">
-            {faqs.map((faq) => (
-              <div key={faq.question} className="rounded-2xl border border-white/10 bg-zinc-950/90 p-4">
-                <h3 className="text-sm font-black text-lime-300">{faq.question}</h3>
-                <p className="mt-2 text-sm text-zinc-300">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-10 px-4 sm:px-6">
           <div className="rounded-2xl border border-orange-400/50 bg-[linear-gradient(160deg,rgba(20,20,20,0.96),rgba(8,8,8,0.98))] p-6 text-center sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-lime-300">Final Step</p>
+            <p className="text-base font-bold uppercase tracking-[0.22em] text-lime-300">Final Step</p>
             <h2 className="mt-2 text-2xl font-black text-white sm:text-3xl">Get Your Project Moving</h2>
-            <p className="mx-auto mt-2 max-w-2xl text-sm text-zinc-300 sm:text-base">
+            <p className="mx-auto mt-2 max-w-2xl text-xs text-zinc-300 sm:text-sm">
               Tell us what you want done, where the property is, and how to reach you. We will follow up with clear next steps.
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <Link
                 href="/intake"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-lime-300 bg-lime-400 px-6 py-3 text-base font-extrabold text-black transition hover:bg-lime-300"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-lime-300 bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] px-6 py-3 text-base font-extrabold text-black shadow-[0_12px_28px_-16px_rgba(163,230,53,0.9)] transition hover:brightness-105"
               >
                 Get My Estimate Started
               </Link>
@@ -311,7 +293,7 @@ export default function HdzLandingPage() {
         <div className="mx-auto flex w-full max-w-6xl gap-2">
           <Link
             href="/intake"
-            className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full border border-lime-300 bg-lime-400 px-4 text-sm font-black text-black"
+            className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full border border-lime-300 bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] px-4 text-sm font-black text-black"
           >
             Start Your Project
           </Link>
