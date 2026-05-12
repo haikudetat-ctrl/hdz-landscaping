@@ -104,6 +104,17 @@ export default function HdzLandingPage() {
                 className="h-auto w-[340px] sm:w-[440px] lg:w-[520px]"
                 priority
               />
+              <nav className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold uppercase tracking-[0.16em] text-zinc-200">
+                <Link href="/services" className="hover:text-lime-300">
+                  Services
+                </Link>
+                <Link href="/about" className="hover:text-lime-300">
+                  About
+                </Link>
+                <Link href="/contact" className="hover:text-lime-300">
+                  Contact
+                </Link>
+              </nav>
               <h1 className="mt-3 max-w-xl text-4xl font-black leading-[1.045] tracking-tight text-lime-400 sm:text-5xl lg:text-6xl">
                 <span className="bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] bg-clip-text text-transparent">
                   Hardscaping & Landscaping
