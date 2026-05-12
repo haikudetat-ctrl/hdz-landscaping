@@ -5,6 +5,7 @@ import { FormEvent, useState } from "react";
 
 import { ConfirmationExperience, type SubmissionSnapshot } from "@/app/intake/_components/confirmation-experience";
 import { leadServiceOptions } from "@/lib/lead";
+import { trackEvent } from "@/lib/analytics";
 
 const timelineOptions = ["ASAP", "Within 30 days", "1-3 months", "Just planning"];
 const budgetOptions = ["Under $2,500", "$2,500-$7,500", "$7,500-$15,000", "$15,000+"];
@@ -14,6 +15,7 @@ export default function IntakePage() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submission, setSubmission] = useState<SubmissionSnapshot | null>(null);
+  const [formStarted, setFormStarted] = useState(false);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -41,6 +43,10 @@ export default function IntakePage() {
     if (!response.ok) {
       const json = (await response.json().catch(() => null)) as { error?: string } | null;
       setError(json?.error ?? "Unable to submit your request right now.");
+      trackEvent("form_submit_error", {
+        location: "/intake",
+        message: json?.error ?? "unknown",
+      });
       setSubmitting(false);
       return;
     }
@@ -58,6 +64,12 @@ export default function IntakePage() {
       photoCount: snapshot.photoCount,
     });
     setSubmitted(true);
+    trackEvent("form_submit_success", {
+      location: "/intake",
+      lead_id: leadId,
+      service_count: snapshot.servicesRequested.length,
+      photo_count: snapshot.photoCount,
+    });
     setSubmitting(false);
     event.currentTarget.reset();
   }
@@ -92,7 +104,16 @@ export default function IntakePage() {
 
         {!submitted ? (
           <div className="mt-6 rounded-2xl border border-orange-400/50 bg-slate-900/85 p-6 text-white shadow-[0_20px_55px_-35px_rgba(255,120,56,0.6)]">
-            <form onSubmit={onSubmit} className="space-y-5">
+            <form
+              onSubmit={onSubmit}
+              onFocusCapture={() => {
+                if (!formStarted) {
+                  setFormStarted(true);
+                  trackEvent("form_start", { location: "/intake" });
+                }
+              }}
+              className="space-y-5"
+            >
             <div className="rounded-xl border border-slate-600 bg-slate-800/70 p-3 text-sm text-slate-200">
               Fill out the essentials now. We use this to prepare your estimate and schedule your follow-up.
             </div>

@@ -1,11 +1,18 @@
+const defaultSiteUrl = "https://hdzlandscapingnj.com";
 const vercelProductionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+
+function normalizeSiteUrl(value: string) {
+  return value.replace(/\/+$/, "");
+}
 
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
   ?? (vercelProductionUrl
     ? vercelProductionUrl.startsWith("http")
       ? vercelProductionUrl
       : `https://${vercelProductionUrl}`
-    : "https://hdz-landscaping.vercel.app");
+    : defaultSiteUrl);
+
+export const canonicalSiteUrl = normalizeSiteUrl(siteUrl);
 
 export const serviceAreaTowns = [
   "Cherry Hill",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { serviceAreaTowns, siteUrl } from "@/lib/seo";
+import { canonicalSiteUrl, serviceAreaTowns } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Landscaping & Hardscaping Services | HDZ South Jersey",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "HDZ Services | South Jersey Landscaping & Hardscaping",
     description:
       "Detailed service list for South Jersey homeowners: lawn maintenance, hardscaping, tree work, concrete, fencing, and seasonal cleanup.",
-    url: `${siteUrl}/services`,
+    url: `${canonicalSiteUrl}/services`,
   },
 };
 
@@ -71,6 +71,8 @@ export default function ServicesPage() {
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Link
             href="/intake"
+            data-analytics-event="cta_click"
+            data-analytics-label="services_page_get_my_estimate_started"
             className="inline-flex min-h-12 items-center justify-center rounded-full border border-lime-300 bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] px-6 py-3 text-base font-extrabold text-black shadow-[0_12px_28px_-16px_rgba(163,230,53,0.9)] transition hover:brightness-105"
           >
             Get My Estimate Started
@@ -95,6 +97,8 @@ export default function ServicesPage() {
               <p className="mt-2 text-sm text-zinc-200">{service.detail}</p>
               <Link
                 href="/intake"
+                data-analytics-event="cta_click"
+                data-analytics-label={`services_page_card_${service.name.toLowerCase().replace(/\s+/g, "_")}`}
                 className="mt-4 inline-flex text-sm font-black uppercase tracking-[0.12em] text-orange-300 transition hover:text-lime-300"
               >
                 Request Estimate

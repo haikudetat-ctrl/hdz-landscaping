@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { serviceAreaTowns, siteUrl } from "@/lib/seo";
+import { canonicalSiteUrl, serviceAreaTowns } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "About HDZ Hardscaping & Landscaping | South Jersey",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About HDZ Hardscaping & Landscaping",
     description: "Local South Jersey contractor focused on reliable communication, clean execution, and practical project planning.",
-    url: `${siteUrl}/about`,
+    url: `${canonicalSiteUrl}/about`,
   },
 };
 
@@ -68,6 +68,8 @@ export default function AboutPage() {
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/intake"
+              data-analytics-event="cta_click"
+              data-analytics-label="about_page_start_my_intake"
               className="inline-flex min-h-12 items-center justify-center rounded-full border border-lime-300 bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] px-6 py-3 text-base font-extrabold text-black shadow-[0_12px_28px_-16px_rgba(163,230,53,0.9)] transition hover:brightness-105"
             >
               Start My Intake

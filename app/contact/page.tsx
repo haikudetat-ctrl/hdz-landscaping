@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { serviceAreaTowns, siteUrl } from "@/lib/seo";
+import { canonicalSiteUrl, serviceAreaTowns } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact HDZ Hardscaping & Landscaping | Free Estimate",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact HDZ | South Jersey Landscaping & Hardscaping",
     description: "Call 856-394-7978 or submit intake online for South Jersey landscaping and hardscaping estimates.",
-    url: `${siteUrl}/contact`,
+    url: `${canonicalSiteUrl}/contact`,
   },
 };
 
@@ -54,6 +54,8 @@ export default function ContactPage() {
             <p className="mt-2 text-sm text-zinc-200">{option.detail}</p>
             <Link
               href={option.href}
+              data-analytics-event={option.label === "Call" ? undefined : "cta_click"}
+              data-analytics-label={option.label === "Call" ? undefined : "contact_page_open_intake"}
               className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full border border-lime-300 bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] px-5 text-sm font-extrabold text-black shadow-[0_12px_28px_-16px_rgba(163,230,53,0.9)] transition hover:brightness-105"
             >
               {option.label === "Call" ? "Call Now" : "Open Intake"}

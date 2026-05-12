@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 
-import { serviceAreaTowns, siteUrl } from "@/lib/seo";
+import { canonicalSiteUrl, serviceAreaTowns } from "@/lib/seo";
 
 const heroBackgroundImage =
   "https://qyshjizmljqzxdpobqfw.supabase.co/storage/v1/object/public/marketing-assets/hdz/hero/hdz-hero-stock1-2200.jpg";
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
     title: "South Jersey Landscaping & Hardscaping | HDZ",
     description:
       "Lawn care, patios, retaining walls, concrete, tree work, and seasonal cleanup with free estimate intake.",
-    url: siteUrl,
+    url: canonicalSiteUrl,
   },
 };
 
@@ -159,6 +159,8 @@ export default function HdzLandingPage() {
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/intake"
+                  data-analytics-event="cta_click"
+                  data-analytics-label="hero_get_my_estimate_started"
                   className="inline-flex min-h-12 items-center justify-center rounded-full border border-lime-300 bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] px-6 py-3 text-base font-extrabold text-black shadow-[0_12px_28px_-16px_rgba(163,230,53,0.9)] transition hover:brightness-105"
                 >
                   Get My Estimate Started
@@ -227,6 +229,8 @@ export default function HdzLandingPage() {
                 <p className="relative z-10 mt-2 text-sm text-zinc-200">{service.blurb}</p>
                 <Link
                   href="/intake"
+                  data-analytics-event="cta_click"
+                  data-analytics-label={`service_card_${service.title.toLowerCase().replace(/\s+/g, "_")}`}
                   className="relative z-10 mt-3 inline-flex text-sm font-black uppercase tracking-[0.12em] text-orange-300 transition hover:text-lime-300"
                 >
                   Request Estimate
@@ -270,6 +274,8 @@ export default function HdzLandingPage() {
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
               <Link
                 href="/intake"
+                data-analytics-event="cta_click"
+                data-analytics-label="midpage_start_my_intake"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-lime-300 bg-lime-400 px-5 text-sm font-extrabold text-black hover:bg-lime-300"
               >
                 Start My Intake
@@ -327,6 +333,8 @@ export default function HdzLandingPage() {
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <Link
                 href="/intake"
+                data-analytics-event="cta_click"
+                data-analytics-label="final_step_get_my_estimate_started"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-lime-300 bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] px-6 py-3 text-base font-extrabold text-black shadow-[0_12px_28px_-16px_rgba(163,230,53,0.9)] transition hover:brightness-105"
               >
                 Get My Estimate Started
@@ -346,6 +354,8 @@ export default function HdzLandingPage() {
         <div className="mx-auto flex w-full max-w-6xl gap-2">
           <Link
             href="/intake"
+            data-analytics-event="cta_click"
+            data-analytics-label="mobile_sticky_start_your_project"
             className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full border border-lime-300 bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] px-4 text-sm font-black text-black"
           >
             Start Your Project
