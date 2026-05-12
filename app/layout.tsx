@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Suspense } from "react";
 
 import "./globals.css";
 import { canonicalSiteUrl } from "@/lib/seo";
 import { Ga4PageTracker } from "@/app/_components/ga4-page-tracker";
 import { AnalyticsEventBridge } from "@/app/_components/analytics-event-bridge";
 
-const ga4MeasurementId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
+const ga4MeasurementId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID ?? "G-G46F6GCDDL";
 const googleSiteVerification = process.env.NEXT_PUBLIC_GSC_VERIFICATION_TOKEN;
 
 export const metadata: Metadata = {
@@ -63,7 +64,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 });
               `}
             </Script>
-            <Ga4PageTracker measurementId={ga4MeasurementId} />
+            <Suspense fallback={null}>
+              <Ga4PageTracker measurementId={ga4MeasurementId} />
+            </Suspense>
             <AnalyticsEventBridge />
           </>
         ) : null}
