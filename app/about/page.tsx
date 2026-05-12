@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { serviceAreaTowns, siteUrl } from "@/lib/seo";
+
 export const metadata: Metadata = {
   title: "About HDZ Hardscaping & Landscaping | South Jersey",
   description:
     "Learn about HDZ Hardscaping & Landscaping LLC, a South Jersey contractor focused on dependable landscaping, hardscaping, and property care.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About HDZ Hardscaping & Landscaping",
+    description: "Local South Jersey contractor focused on reliable communication, clean execution, and practical project planning.",
+    url: `${siteUrl}/about`,
+  },
 };
 
 const principles = [
@@ -48,6 +58,13 @@ export default function AboutPage() {
           <p className="mt-3 text-sm text-zinc-100">
             If you are comparing options, we recommend starting intake with project details and photos so we can provide the most useful next step.
           </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {serviceAreaTowns.map((town) => (
+              <span key={town} className="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-semibold text-zinc-100">
+                {town}
+              </span>
+            ))}
+          </div>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/intake"
@@ -67,4 +84,3 @@ export default function AboutPage() {
     </main>
   );
 }
-

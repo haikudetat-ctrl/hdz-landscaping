@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { serviceAreaTowns, siteUrl } from "@/lib/seo";
+
 export const metadata: Metadata = {
   title: "Landscaping & Hardscaping Services | HDZ South Jersey",
   description:
     "Explore HDZ Hardscaping & Landscaping services in South Jersey including lawn maintenance, patios, retaining walls, tree service, concrete, fencing, leaf and snow removal.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "HDZ Services | South Jersey Landscaping & Hardscaping",
+    description:
+      "Detailed service list for South Jersey homeowners: lawn maintenance, hardscaping, tree work, concrete, fencing, and seasonal cleanup.",
+    url: `${siteUrl}/services`,
+  },
 };
 
 const services = [
@@ -91,8 +102,19 @@ export default function ServicesPage() {
             </article>
           ))}
         </div>
+
+        <div className="mt-8 rounded-2xl border border-white/10 bg-zinc-950/80 p-5">
+          <h2 className="text-lg font-black text-lime-300">Primary Service Area Towns</h2>
+          <p className="mt-2 text-sm text-zinc-300">Coverage and scheduling are prioritized across these South Jersey markets:</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {serviceAreaTowns.map((town) => (
+              <span key={town} className="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-semibold text-zinc-100">
+                {town}
+              </span>
+            ))}
+          </div>
+        </div>
       </section>
     </main>
   );
 }
-

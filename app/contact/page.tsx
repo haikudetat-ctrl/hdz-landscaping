@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { serviceAreaTowns, siteUrl } from "@/lib/seo";
+
 export const metadata: Metadata = {
   title: "Contact HDZ Hardscaping & Landscaping | Free Estimate",
   description:
     "Contact HDZ Hardscaping & Landscaping LLC for landscaping and hardscaping estimates in South Jersey. Call 856-394-7978 or submit intake online.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact HDZ | South Jersey Landscaping & Hardscaping",
+    description: "Call 856-394-7978 or submit intake online for South Jersey landscaping and hardscaping estimates.",
+    url: `${siteUrl}/contact`,
+  },
 };
 
 const contactOptions = [
@@ -51,7 +61,19 @@ export default function ContactPage() {
           </article>
         ))}
       </section>
+
+      <section className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6">
+        <div className="rounded-2xl border border-white/10 bg-zinc-950/80 p-5">
+          <h2 className="text-lg font-black text-lime-300">Current South Jersey Coverage</h2>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {serviceAreaTowns.map((town) => (
+              <span key={town} className="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-semibold text-zinc-100">
+                {town}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
-

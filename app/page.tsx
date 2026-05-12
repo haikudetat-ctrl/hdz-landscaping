@@ -1,5 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+import { serviceAreaTowns, siteUrl } from "@/lib/seo";
 
 const heroBackgroundImage =
   "https://qyshjizmljqzxdpobqfw.supabase.co/storage/v1/object/public/marketing-assets/hdz/hero/hdz-hero-stock1-2200.jpg";
@@ -81,6 +84,29 @@ const outcomes = [
   "Great work at an affordable price",
   "A cleaner, sharper property that stays maintained",
 ];
+
+export const metadata: Metadata = {
+  title: "South Jersey Landscaping & Hardscaping | Free Estimates",
+  description:
+    "HDZ Hardscaping & Landscaping LLC provides lawn maintenance, hardscaping, retaining walls, concrete, tree service, and seasonal property services across South Jersey.",
+  alternates: {
+    canonical: "/",
+  },
+  keywords: [
+    "South Jersey landscaping",
+    "South Jersey hardscaping",
+    "lawn maintenance South Jersey",
+    "retaining walls South Jersey",
+    "driveway concrete contractor South Jersey",
+    "tree service South Jersey",
+  ],
+  openGraph: {
+    title: "South Jersey Landscaping & Hardscaping | HDZ",
+    description:
+      "Lawn care, patios, retaining walls, concrete, tree work, and seasonal cleanup with free estimate intake.",
+    url: siteUrl,
+  },
+};
 
 export default function HdzLandingPage() {
   return (
@@ -254,6 +280,22 @@ export default function HdzLandingPage() {
               >
                 Speak With HDZ
               </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-10 px-4 sm:px-6">
+          <div className="rounded-2xl border border-lime-400/30 bg-zinc-950/90 p-6">
+            <h2 className="text-2xl font-black text-white sm:text-3xl">South Jersey Service Area Coverage</h2>
+            <p className="mt-2 max-w-3xl text-sm text-zinc-300">
+              HDZ supports homeowners across Camden, Burlington, and Gloucester County with routing based on active project demand and seasonal scheduling.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {serviceAreaTowns.map((town) => (
+                <span key={town} className="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs font-semibold text-zinc-100">
+                  {town}
+                </span>
+              ))}
             </div>
           </div>
         </section>
