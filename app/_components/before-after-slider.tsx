@@ -40,8 +40,7 @@ export function BeforeAfterSlider({ beforeSrc, afterSrc, alt }: BeforeAfterSlide
         </div>
       </div>
 
-      <div className="mt-3 flex items-center gap-3">
-        <span className="text-xs font-bold uppercase tracking-[0.14em] text-zinc-300">Before</span>
+      <div className="mt-3">
         <input
           id={sliderId}
           type="range"
@@ -52,7 +51,6 @@ export function BeforeAfterSlider({ beforeSrc, afterSrc, alt }: BeforeAfterSlide
           className="h-1.5 w-full cursor-ew-resize appearance-none rounded-full bg-zinc-700 accent-lime-300"
           aria-label="Before and after image slider"
         />
-        <span className="text-xs font-bold uppercase tracking-[0.14em] text-lime-300">After</span>
       </div>
     </figure>
   );
