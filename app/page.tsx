@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 
+import { BeforeAfterSlider } from "@/app/_components/before-after-slider";
 import { canonicalSiteUrl, serviceAreaTowns } from "@/lib/seo";
 
 const heroBackgroundImage =
@@ -309,17 +310,10 @@ export default function HdzLandingPage() {
         <section className="mt-10 px-4 sm:px-6">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-black text-white sm:text-3xl">Before & After</h2>
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">Gallery Placeholder</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400">Drag to Compare</span>
           </div>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3].map((slot) => (
-              <div
-                key={slot}
-                className="flex min-h-48 items-center justify-center rounded-2xl border border-lime-400/20 bg-[linear-gradient(145deg,rgba(10,18,12,0.9),rgba(5,8,6,0.95))] text-sm font-bold text-zinc-300"
-              >
-                Before / After {slot}
-              </div>
-            ))}
+          <div className="mt-4">
+            <BeforeAfterSlider beforeSrc="/images/before1.jpg" afterSrc="/images/after1.jpg" alt="Front yard transformation" />
           </div>
         </section>
 
