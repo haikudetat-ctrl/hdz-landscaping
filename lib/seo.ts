@@ -26,3 +26,5 @@ export const serviceAreaTowns = [
   "Deptford",
   "Williamstown",
 ];
+
+export const googleReviewUrl = "https://g.page/r/CdA0QFqzKSRwEBM/review";

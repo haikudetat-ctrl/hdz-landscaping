@@ -6,6 +6,7 @@ import "./globals.css";
 import { canonicalSiteUrl } from "@/lib/seo";
 import { Ga4PageTracker } from "@/app/_components/ga4-page-tracker";
 import { AnalyticsEventBridge } from "@/app/_components/analytics-event-bridge";
+import { GoogleReviewCta } from "@/app/_components/google-review-cta";
 
 const ga4MeasurementId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID ?? "G-G46F6GCDDL";
 const googleSiteVerification = process.env.NEXT_PUBLIC_GSC_VERIFICATION_TOKEN;
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <AnalyticsEventBridge />
           </>
         ) : null}
+        <GoogleReviewCta variant="bar" />
         {children}
       </body>
     </html>
