@@ -146,7 +146,7 @@ export default function HdzLandingPage() {
                 <span className="bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] bg-clip-text text-transparent">
                   Hardscaping & Landscaping
                 </span>
-                <span className="mt-1 block whitespace-nowrap text-[0.75em] font-black leading-[1.05] tracking-tight text-white">
+                <span className="mt-1 block text-[0.75em] font-black leading-[1.05] tracking-tight text-white sm:whitespace-nowrap">
                   Built Around Your Budget
                 </span>
               </h1>
@@ -350,7 +350,7 @@ export default function HdzLandingPage() {
             href="/intake"
             data-analytics-event="cta_click"
             data-analytics-label="mobile_sticky_start_your_project"
-            className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full border border-lime-300 bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] px-4 text-sm font-black text-black"
+            className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full border border-lime-300 bg-[linear-gradient(to_bottom_right,#9AE600,#85C700)] px-4 text-center text-sm font-black text-black"
           >
             Start Your Project
           </Link>
